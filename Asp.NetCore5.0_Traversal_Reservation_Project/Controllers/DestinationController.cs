@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,17 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
         {
             var values = destinationManager.TGetList();
             return View(values);
+        }
+        [HttpGet]
+        public IActionResult DestinationDetails(int id)
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public IActionResult DestinationDetails(Destination destination)
+        {
+            return View();
         }
     }
 }
