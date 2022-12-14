@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,11 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.ViewComponents.Default
 {
     public class _Testimonial:ViewComponent
     {
+        TestimonialManager testimonialManager = new(new EfTestimonialRepository());
         public IViewComponentResult Invoke()
         {
-            return View();
+            var values = testimonialManager.TGetList();
+            return View(values);
         }
     }
 }
