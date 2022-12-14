@@ -8,14 +8,13 @@ using System.Threading.Tasks;
 
 namespace Asp.NetCore5._0_Traversal_Reservation_Project.ViewComponents.Default
 {
-    public class _Feature:ViewComponent
+    public class _SubAbout:ViewComponent
     {
-        FeatureManager featureManager = new(new EfFeatureRepository());
+        SubAboutManager subAboutManager = new(new EfSubAboutRepository());
         public IViewComponentResult Invoke()
         {
-           // var values = featureManager.TGetList();
-           
-            return View();
+            var values=subAboutManager.TGetList();
+            return View(values);
         }
     }
 }
