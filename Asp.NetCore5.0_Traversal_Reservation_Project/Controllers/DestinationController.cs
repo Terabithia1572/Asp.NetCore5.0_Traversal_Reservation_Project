@@ -20,8 +20,8 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
         [HttpGet]
         public IActionResult DestinationDetails(int id)
         {
-
-            return View();
+            var values = destinationManager.GetByID(id);
+            return View(values);
         }
         [HttpPost]
         public IActionResult DestinationDetails(Destination destination)
