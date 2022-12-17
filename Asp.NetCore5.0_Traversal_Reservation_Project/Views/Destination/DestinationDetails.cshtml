@@ -75,7 +75,7 @@
                     </div>
                     <h3 class="blog-desc-big m-0 mb-lg-4 mb-3">2.Paragraf</h3>
                     <p class="mb-4">
-                        @Model.Details2 
+                        @Model.Details2
                     </p>
                     <div class="d-grid left-right mt-5 pb-md-5">
                         <div class="buttons-singles tags">
@@ -151,8 +151,8 @@
                     </div>
                     <!--//author-card-->
 
-                    @await Component.InvokeAsync("_CommentList") 
-                    @await Component.InvokeAsync("_AddComment") 
+                    @await Component.InvokeAsync("_CommentList", new { id = ViewBag.id }) @*id yi taşıdık bu sayede new ve viewbag ile*@
+                    @await Component.InvokeAsync("_AddComment")
                 </div>
             </div>
             <!--//blog-post-->
