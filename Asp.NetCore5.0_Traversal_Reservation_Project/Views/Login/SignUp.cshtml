@@ -1,0 +1,129 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Traversal Kullanıcı Kayıt Sayfası</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINEARICONS -->
+    <link rel="stylesheet" href="~/colorlib-regform-26/fonts/linearicons/style.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="~/colorlib-regform-26/css/style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="inner">
+            <img src="~/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
+            <form action="">
+                <h3>Yeni Hesap Oluştur</h3>
+                <div class="form-holder">
+                    <span class="lnr lnr-user"></span>
+                    <input type="text" class="form-control" placeholder="Adınız">
+                </div>
+                <div class="form-holder">
+                    <span class="lnr lnr-users"></span>
+                    <input type="text" class="form-control" placeholder="Soyadınız">
+                </div>
+                <div class="form-holder">
+                    <span class="lnr lnr-envelope"></span>
+                    <input type="text" class="form-control" placeholder="Mail Adresiniz">
+                </div>
+                <div class="form-holder">
+                    <span class="lnr lnr-phone-handset"></span>
+                    <input type="text" class="form-control" placeholder="Telefon Numaranız">
+                </div>
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" class="form-control" placeholder="Şifre">
+                </div>
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" class="form-control" placeholder="Şifre Tekrar">
+                </div>
+                <a href="/Login/SignUp/">
+                    <span>Kayıt Ol</span>
+                </a>
+                <a href="/Login/SignIn/">
+                    <span>Giriş Yap</span>
+                </a>
+            </form>
+            <img src="~/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
+        </div>
+
+    </div>
+    
+
+    <script src="~/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
+    <script src="~/colorlib-regform-26/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
+<style>
+    a {
+        border: none;
+        width: 100%;
+        height: 49px;
+        margin-top: 50px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        background: #FF5733;
+        color: #fff;
+        text-transform: uppercase;
+        font-family: "Muli-SemiBold";
+        font-size: 15px;
+        letter-spacing: 2px;
+        transition: all 0.5s;
+        position: relative;
+        overflow: hidden;
+        span
+
+    {
+        position: relative;
+        z-index: 2;
+    }
+
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background-color: rgba(52,152,253,0.25);
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+        -webkit-transform: translate(-100%,0);
+        transform: translate(-100%,0);
+        -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+        transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+    }
+
+    &:after {
+        -webkit-transition-delay: 0.2s;
+        transition-delay: 0.2s;
+    }
+
+    &:hover {
+        &:before, &:after
+
+    {
+        -webkit-transform: translate(0,0);
+        transform: translate(0,0);
+    }
+
+    }
+    }
+</style>
