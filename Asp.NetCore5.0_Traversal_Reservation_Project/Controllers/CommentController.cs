@@ -18,12 +18,13 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
             return PartialView();
         }
         [HttpPost]
-        public PartialViewResult AddComment(Comment comment)
+        public IActionResult AddComment(Comment comment)
         {
             comment.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             comment.CommentStatus = true;
+            
             commentManager.TAdd(comment);
-            return PartialView();
+            return RedirectToAction("Index","Destination");
         }
     }
 }
