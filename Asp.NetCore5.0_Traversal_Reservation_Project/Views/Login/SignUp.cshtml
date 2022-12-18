@@ -23,38 +23,38 @@
     <div class="wrapper">
         <div class="inner">
             <img src="~/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
-            <form action="">
+            <form method="post">
                 <h3>Yeni Hesap Oluştur</h3>
                 <div class="form-holder">
                     <span class="lnr lnr-user"></span>
-                    <input type="text" class="form-control" placeholder="Adınız">
+                    <input type="text" class="form-control" name="Name" placeholder="Adınız">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-users"></span>
-                    <input type="text" class="form-control" placeholder="Soyadınız">
+                    <input type="text" class="form-control" name="Surname" placeholder="Soyadınız">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-envelope"></span>
-                    <input type="text" class="form-control" placeholder="Mail Adresiniz">
+                    <input type="text" class="form-control" name="Mail" placeholder="Mail Adresiniz">
                 </div>
                 <div class="form-holder">
-                    <span class="lnr lnr-phone-handset"></span>
-                    <input type="text" class="form-control" placeholder="Telefon Numaranız">
-                </div>
-                <div class="form-holder">
-                    <span class="lnr lnr-lock"></span>
-                    <input type="password" class="form-control" placeholder="Şifre">
+                    <span class="lnr lnr-bug"></span>
+                    <input type="text" class="form-control" placeholder="Kullanıcı Adınız" name="Username">
                 </div>
                 <div class="form-holder">
                     <span class="lnr lnr-lock"></span>
-                    <input type="password" class="form-control" placeholder="Şifre Tekrar">
+                    <input type="password" name="Password" class="form-control" placeholder="Şifre">
                 </div>
-                <a href="/Login/SignUp/">
+                <div class="form-holder">
+                    <span class="lnr lnr-lock"></span>
+                    <input type="password" name="ConfirmPassword" class="form-control" placeholder="Şifre Tekrar">
+                </div>
+                <button>
                     <span>Kayıt Ol</span>
-                </a>
-                <a href="/Login/SignIn/">
+                </button>
+                @*<a href="/Login/SignIn/">
                     <span>Giriş Yap</span>
-                </a>
+                </a>*@
             </form>
             <img src="~/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
         </div>
