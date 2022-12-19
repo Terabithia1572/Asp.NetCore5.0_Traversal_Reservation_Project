@@ -1,3 +1,4 @@
+using Asp.NetCore5._0_Traversal_Reservation_Project.Models;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -28,7 +29,8 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>();
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>(); // Identity Yapýlanmasýný ekleedik
+            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
+                .AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>(); // Identity Yapýlanmasýný ekleedik
 
             services.AddControllersWithViews();
             services.AddMvc(config =>
