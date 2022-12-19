@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\sneat-1.0.0\.github\workflows\handle-new-issue-comment.yml" />
+    <None Include="wwwroot\sneat-1.0.0\.github\workflows\handle-new-issue.yml" />
+    <None Include="wwwroot\sneat-1.0.0\.github\workflows\issue-staler.yml" />
+    <None Include="wwwroot\soft-ui-dashboard\.github\workflows\main.yml" />
     <None Include="wwwroot\Traversal-Starter\assets\fonts\fontawesome-webfont.svg" />
     <None Include="wwwroot\Traversal-Starter\assets\fonts\fontawesome-webfont.woff2" />
     <None Include="wwwroot\Traversal-Starter\assets\js\all.js" />
@@ -52,10 +56,6 @@
     <Content Update="wwwroot\colorlib-regform-26\css\style - Copy.css.map">
       <DependentUpon>style.css.map</DependentUpon>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\soft-ui-dashboard\" />
   </ItemGroup>
 
 </Project>
