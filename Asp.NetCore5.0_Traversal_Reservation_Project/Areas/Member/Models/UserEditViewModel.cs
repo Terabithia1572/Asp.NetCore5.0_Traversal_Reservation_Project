@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,5 +15,6 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Member.Models
         public string phonenumber { get; set; }
         public string mail { get; set; }
         public string imageurl { get; set; }
+        public IFormFile Image { get; set; }
     }
 }
