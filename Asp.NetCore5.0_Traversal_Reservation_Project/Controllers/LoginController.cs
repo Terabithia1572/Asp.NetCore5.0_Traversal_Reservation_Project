@@ -69,7 +69,7 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
                 var result = await _signInManager.PasswordSignInAsync(userSignInViewModel.Username, userSignInViewModel.Password, true, false);
                 if(result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Destination");
+                    return RedirectToAction("Index", "Profile",new {area="Member" });
                 }
                 else
                 {
