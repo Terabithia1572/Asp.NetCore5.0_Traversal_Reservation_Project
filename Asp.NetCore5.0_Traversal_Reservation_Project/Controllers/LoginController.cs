@@ -14,10 +14,12 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
     public class LoginController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
 
-        public LoginController(UserManager<AppUser> userManager)
+        public LoginController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -54,8 +56,26 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
             return View(userRegisterViewModel);
         }
 
+        [HttpGet]
         public IActionResult SignIn()
         {
+            return View();
+        }
+        [HttpPost]
+        public async Task< IActionResult> SignIn(UserSignInViewModel userSignInViewModel)
+        {
+            if(ModelState.IsValid)
+            {
+                var result = await _signInManager.PasswordSignInAsync(userSignInViewModel.Username, userSignInViewModel.Password, true, false);
+                if(result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Destination");
+                }
+                else
+                {
+                    return RedirectToAction("SignIn", "Login");
+                }
+            }
             return View();
         }
     }
