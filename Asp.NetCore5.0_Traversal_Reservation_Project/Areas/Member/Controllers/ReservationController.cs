@@ -35,12 +35,15 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Member.Controllers
                                            }).ToList();
 
             ViewBag.v = values;
+            
+            
             return View();
         }
         [HttpPost]
         public IActionResult NewReservation(Reservation reservation)
         {
             reservation.AppUserId = 1;
+            reservation.Status = "Onay Bekliyor";
             reservationManager.TAdd(reservation);
             return RedirectToAction("MyCurrentReservation");
         }

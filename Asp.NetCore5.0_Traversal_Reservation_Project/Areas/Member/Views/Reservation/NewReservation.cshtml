@@ -28,6 +28,23 @@
         <input type="text" asp-for="Description" class="form-control" />
     </div>
     <br />
-    <button class="btn btn-outline-success">Rezervasyon Yap</button>
+    <button class="btn btn-danger">Rezervasyon Yap</button>
 </form>
+
+<script>
+    window.onload = (function () {
+        swal.fire({
+            title: 'Rezervasyon Yapıldıktan sonra ONAY BEKLİYOR durumuna düşecektir.',
+            confirmButtonText:'Tamam',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        })
+    });</script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
