@@ -16,5 +16,21 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
         {
             return PartialView();
         }
+        public PartialViewResult PartialSidebar()
+        {
+            return PartialView();
+        }
+        public PartialViewResult PartialNavbar()
+        {
+            return PartialView();
+        }
+        public PartialViewResult PartialFooter()
+        {
+            return PartialView();
+        }
+        public PartialViewResult PartialScripts()
+        {
+            return PartialView();
+        }
     }
 }
