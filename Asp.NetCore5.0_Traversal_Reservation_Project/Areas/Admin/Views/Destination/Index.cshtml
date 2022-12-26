@@ -23,9 +23,9 @@
             <td>@item.City</td>
             <td>@item.Price</td>
             <td>@item.Capacity</td>
-            <td><a href="#" class="btn btn-info">Sitede Gör</a></td>
-            <td><a href="#" class="btn btn-danger">Sil</a></td>
-            <td><a href="#" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Destination/DestinationDetails/@item.DestinationID" class="btn btn-info">Sitede Gör</a></td>
+            <td><a href="/Admin/Destination/DeleteDestination/@item.DestinationID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Admin/Destination/UpdateDestination/@item.DestinationID" class="btn btn-success">Güncelle</a></td>
         </tr>
     }
 </table>

@@ -46,6 +46,7 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
 
         public IActionResult UpdateDestination(Destination destination)
         {
+            destination.Status = true;
             destinationManager.TUpdate(destination);
             return RedirectToAction("Index");
         }
