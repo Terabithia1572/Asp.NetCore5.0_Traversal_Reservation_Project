@@ -38,6 +38,10 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project
 
             services.AddScoped<ICommentService, CommentManager>();
             services.AddScoped<ICommentDal, EfCommentRepository>();
+            services.AddScoped<IDestinationService, DestinationManager>();
+            services.AddScoped<IDestinationDal, EfDestinationRepository>();
+            services.AddScoped<IAppUserService, AppUserManager>();
+            services.AddScoped<IAppUserDal, EfAppUserRepository>();
 
             services.AddControllersWithViews();
             services.AddMvc(config =>
