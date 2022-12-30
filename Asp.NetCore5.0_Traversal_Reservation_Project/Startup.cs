@@ -1,5 +1,9 @@
 using Asp.NetCore5._0_Traversal_Reservation_Project.Models;
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +35,9 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project
             services.AddDbContext<Context>();
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
                 .AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>(); // Identity Yapýlanmasýný ekleedik
+
+            services.AddScoped<ICommentService, CommentManager>();
+            services.AddScoped<ICommentDal, EfCommentRepository>();
 
             services.AddControllersWithViews();
             services.AddMvc(config =>
