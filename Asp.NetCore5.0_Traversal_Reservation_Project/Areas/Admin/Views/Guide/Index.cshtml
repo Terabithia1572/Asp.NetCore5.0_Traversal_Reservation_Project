@@ -1,0 +1,126 @@
+﻿@using EntityLayer.Concrete
+@model List<Guide>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int sayac = 0;
+}
+
+@*<h1>Rehber Listesi</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Görsel</th>
+            <th>Ad Soyad</th>
+            <th>Açıklama</th>
+            <th>Durum</th>
+            <th>Düzenle</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.GuideID</td>
+                <td><img src="@item.GuideImage" /></td>
+                <td>@item.GuideName</td>
+                <td>@item.GuideDescription</td>
+                <td>@item.Status</td>
+                <td><a href="#" class="btn btn-success">Düzenle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="#" class="btn btn-primary">Yeni Rehber Girişi</a>*@
+<div class="card">
+    <h5 class="card-header">Kullanıcı İşlemleri</h5>
+    <div class="table-responsive text-nowrap">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Ad Soyad</th>
+                    <th>Görsel</th>
+                    <th>Durum</th>
+                    <th>Açıklama</th>
+                    <th>Diğer İşlemler</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+                @foreach (var item in Model)
+                {
+
+
+                <tr>
+                    @{ sayac = sayac + 1;}
+                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@sayac</strong></td>
+                    <td>@item.GuideName</td>
+                    @if (item.GuideID == 1)
+                    {
+                        <td>
+                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                <li data-bs-toggle="tooltip"
+                                    data-popup="tooltip-custom"
+                                    data-bs-placement="top"
+                                    class="avatar avatar-xs pull-up"
+                                    title="@item.GuideName ">
+                                    <img src="~/UserImages/9601070c-ee01-4bc6-969d-e6d7d5d8dc4d.jfif" alt="" class="rounded-circle" />
+                                </li>
+
+                            </ul>
+                        </td>
+                    }
+                    else if(item.GuideID !=1)
+                    {
+                        <td>
+                            <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
+                                <li data-bs-toggle="tooltip"
+                                    data-popup="tooltip-custom"
+                                    data-bs-placement="top"
+                                    class="avatar avatar-xs pull-up"
+                                    title="@item.GuideName ">
+                                    <img src="@item.GuideImage" alt="" class="rounded-circle" />
+                                </li>
+
+                            </ul>
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+
+                <td>
+                    @if (item.Status == true)
+                    {
+                        <a href="#" class="badge bg-label-danger me-1">Pasif Yap</a>
+                    }
+                    else
+                    {
+                        <a href="#" class="badge bg-label-primary me-1">Aktif Yap</a>
+                    }
+                </td>
+                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.GuideDescription</strong></td>
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#"><i class="bx bx-edit-alt me-1"></i> Düzenle</a>
+                                <a class="dropdown-item" href="#"><i class="bx bx-trash me-1"></i> Sil</a>
+                                <a class="dropdown-item" href="#"><i class="bx bx-comment me-1"></i> Yapılan Yorumlar</a>
+                                <a class="dropdown-item" href="#"><i class="bx bx-book-heart me-1"></i>Tur Geçmişi</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                        }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+
+<a href="/Admin/Guide/AddGuide/" class="btn btn-primary">Yeni Rehber Girişi</a>
+
+
+

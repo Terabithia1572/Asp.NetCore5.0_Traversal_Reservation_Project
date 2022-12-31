@@ -1,0 +1,56 @@
+﻿@model EntityLayer.Concrete.Guide
+@{
+    ViewData["Title"] = "AddGuide";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Misafir Ekleme Sayfası</h1>
+
+<form method="post">
+    <br />
+    <div class="form-group">
+        @Html.Label("Ad Soyad")
+        <input type="text" asp-for="GuideName" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Açıklama")
+        <input type="text" asp-for="GuideDescription" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Görsel")
+        <input type="text" asp-for="GuideImage" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Twitter")
+        <input type="text" asp-for="TwitterURL" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Instagram")
+        <input type="text" asp-for="InstagramURL" class="form-control" />
+    </div>
+    <br />
+    <button class="btn btn-danger">Rehber'i Kaydet</button>
+</form>
+
+<script>
+    window.onload = (function () {
+        swal.fire({
+            title: 'Rehber Eklendikten Sonra Yönlendirileceksiniz...',
+            confirmButtonText: 'Tamam',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        })
+    });</script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
