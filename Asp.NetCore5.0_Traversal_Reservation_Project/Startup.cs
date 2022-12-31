@@ -1,6 +1,7 @@
 using Asp.NetCore5._0_Traversal_Reservation_Project.Models;
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using BusinessLayer.Container;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
@@ -36,12 +37,10 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project
             services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>()
                 .AddErrorDescriber<CustomIdentityValidator>().AddEntityFrameworkStores<Context>(); // Identity Yapýlanmasýný ekleedik
 
-            services.AddScoped<ICommentService, CommentManager>();
-            services.AddScoped<ICommentDal, EfCommentRepository>();
-            services.AddScoped<IDestinationService, DestinationManager>();
-            services.AddScoped<IDestinationDal, EfDestinationRepository>();
-            services.AddScoped<IAppUserService, AppUserManager>();
-            services.AddScoped<IAppUserDal, EfAppUserRepository>();
+            //Extensions extensions = new Extensions(); // bu komut sayesinde Business Layer'da tanýmladýðýmýz Container sýnýfýna ulaþabildik
+            //extensions.ContainerDependencies(services); // devamý
+
+            services.ContainerDependencies();
 
             services.AddControllersWithViews();
             services.AddMvc(config =>

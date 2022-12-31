@@ -12,11 +12,15 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
     public class UserController : Controller
     {
         private readonly IAppUserService _appUserService;
+        private readonly IReservationService _reservationService;
 
-        public UserController(IAppUserService appUserDal)
+        public UserController(IAppUserService appUserDal, IReservationService reservationService)
         {
             _appUserService = appUserDal;
+            _reservationService = reservationService;
         }
+
+
 
         public IActionResult Index()
         {
@@ -48,8 +52,8 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
         }
         public IActionResult ReservationUser(int id)
         {
-            _appUserService.TGetList();
-            return View();
+            var values=_reservationService.GetListWithReservationByAccepted(id);
+            return View(values);
         }
     }
 }
