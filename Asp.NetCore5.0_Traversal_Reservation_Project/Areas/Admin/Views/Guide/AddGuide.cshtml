@@ -11,16 +11,21 @@
     <div class="form-group">
         @Html.Label("Ad Soyad")
         <input type="text" asp-for="GuideName" class="form-control" />
+        <span asp-validation-for="GuideName" class="text-danger"></span>
     </div>
     <br />
     <div class="form-group">
         @Html.Label("Açıklama")
         <input type="text" asp-for="GuideDescription" class="form-control" />
+        <span asp-validation-for="GuideDescription" class="text-danger"></span>
+
     </div>
     <br />
     <div class="form-group">
         @Html.Label("Görsel")
         <input type="text" asp-for="GuideImage" class="form-control" />
+        <span asp-validation-for="GuideImage" class="text-danger"></span>
+
     </div>
     <br />
     <div class="form-group">
