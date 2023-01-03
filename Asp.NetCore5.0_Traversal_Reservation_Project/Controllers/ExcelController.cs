@@ -1,4 +1,5 @@
 ﻿using Asp.NetCore5._0_Traversal_Reservation_Project.Models;
+using BusinessLayer.Abstract;
 using ClosedXML.Excel;
 using DataAccessLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,13 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
 {
     public class ExcelController : Controller
     {
+        private readonly IExcelService _excelService;
+
+        public ExcelController(IExcelService excelService)
+        {
+            _excelService = excelService;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -35,22 +43,25 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
 
         public IActionResult StaticExcelReport()
         {
-            ExcelPackage excelPackage = new();
-            var workSheet = excelPackage.Workbook.Worksheets.Add("Sayfa1");
-            workSheet.Cells[1, 1].Value = "Rota";
-            workSheet.Cells[1, 2].Value = "Rehber";
-            workSheet.Cells[1, 3].Value = "Kontenjan";
+            //ExcelPackage excelPackage = new();
+            //var workSheet = excelPackage.Workbook.Worksheets.Add("Sayfa1");
+            //workSheet.Cells[1, 1].Value = "Rota";
+            //workSheet.Cells[1, 2].Value = "Rehber";
+            //workSheet.Cells[1, 3].Value = "Kontenjan";
 
-            workSheet.Cells[2, 1].Value = "Gurcistan,Batum Turu";
-            workSheet.Cells[2, 2].Value = "Yunus İNAN";
-            workSheet.Cells[2, 3].Value = "30";
+            //workSheet.Cells[2, 1].Value = "Gurcistan,Batum Turu";
+            //workSheet.Cells[2, 2].Value = "Yunus İNAN";
+            //workSheet.Cells[2, 3].Value = "30";
 
-            workSheet.Cells[2, 1].Value = "Sırbistan - Makedonya Turu";
-            workSheet.Cells[2, 2].Value = "Zeynep Öztürk";
-            workSheet.Cells[2, 3].Value = "50";
+            //workSheet.Cells[2, 1].Value = "Sırbistan - Makedonya Turu";
+            //workSheet.Cells[2, 2].Value = "Zeynep Öztürk";
+            //workSheet.Cells[2, 3].Value = "50";
 
-            var bytes = excelPackage.GetAsByteArray();
-            return File(bytes, "application/vnd.openxmlformats-officedocument-spreadsheetml.sheet", "dosya.xlsx");
+            //var bytes = excelPackage.GetAsByteArray();
+            //return File(bytes, "application/vnd.openxmlformats-officedocument-spreadsheetml.sheet", "dosya.xlsx");
+
+            return File(_excelService.ExcelList(DestinationList()), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "YeniExcel.xlsx");
+            //application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
         }
 
         public IActionResult DestinationExcelReport()

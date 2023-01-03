@@ -1,14 +1,13 @@
-﻿using EntityLayer.Concrete;
+﻿using BusinessLayer.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer.Abstract
+namespace BusinessLayer.Concrete
 {
-    public interface IGuideService:IGenericService<Guide>
+    public class PdfManager:IPdfService
     {
-     
     }
 }
