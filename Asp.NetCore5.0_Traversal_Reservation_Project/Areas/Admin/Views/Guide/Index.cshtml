@@ -91,11 +91,11 @@
                 <td>
                     @if (item.Status == true)
                     {
-                        <a href="/Admin/Guide/ChangeToTrue/@item.GuideID" class="badge bg-label-danger me-1">Pasif Yap</a>
+                        <a href="/Admin/Guide/ChangeToFalse/@item.GuideID" class="badge bg-label-danger me-1">Pasif Yap</a>
                     }
                     else
                     {
-                        <a href="/Admin/Guide/ChangeToFalse/@item.GuideID" class="badge bg-label-primary me-1">Aktif Yap</a>
+                        <a href="/Admin/Guide/ChangeToTrue/@item.GuideID" class="badge bg-label-primary me-1">Aktif Yap</a>
                     }
                 </td>
                     <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>@item.GuideDescription</strong></td>
