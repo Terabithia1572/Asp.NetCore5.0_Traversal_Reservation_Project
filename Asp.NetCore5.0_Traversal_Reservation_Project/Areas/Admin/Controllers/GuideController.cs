@@ -87,7 +87,7 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
             var values = _guideService.GetByID(id);
             _guideService.TDelete(values);
             return RedirectToAction("Index", "Guide", new { area = "Admin" });
-
+            //NULL
         }
     }
 }
