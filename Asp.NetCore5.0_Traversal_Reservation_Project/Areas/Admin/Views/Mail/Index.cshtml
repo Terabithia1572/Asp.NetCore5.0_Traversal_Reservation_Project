@@ -1,0 +1,28 @@
+﻿@model Asp.NetCore5._0_Traversal_Reservation_Project.Models.MailRequest
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Rehber Oluşturma Sayfası</h1>
+
+<form method="post">
+    <br />
+    <div class="form-group">
+        @Html.Label("Alıcı Mail Adresi")
+        <input type="text" asp-for="ReceiverMail" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Konu Başlığı")
+        <input type="text" asp-for="Subject" class="form-control" />
+    </div>
+    <br />
+    <div class="form-group">
+        @Html.Label("Mesaj İçeriği")
+        <textarea cols="30" rows="5" class="form-control" asp-for="Body"></textarea>
+    </div>
+    <br />
+    <button class="btn btn-danger">Gönder</button>
+</form>
