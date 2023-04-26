@@ -60,6 +60,7 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
         {
             var values = _guideService.GetByID(id);
             return View(values);
+            //
         }
         [HttpPost]
         public IActionResult EditGuide(Guide guide)
