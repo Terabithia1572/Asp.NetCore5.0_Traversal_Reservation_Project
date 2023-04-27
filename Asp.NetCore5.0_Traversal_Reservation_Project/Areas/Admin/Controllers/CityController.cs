@@ -38,11 +38,26 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
             return Json(values);
         }
 
-        public IActionResult GetByID(int id)
+        public IActionResult GetByID(int DestinationID)
         {
-            var values = _destinationService.GetByID(id);
+            var values = _destinationService.GetByID(DestinationID);
             var jsonValues = JsonConvert.SerializeObject(values);
             return Json(jsonValues);
+        }
+
+        public IActionResult DeleteCity(int id)
+        {
+            var values = _destinationService.GetByID(id);
+            _destinationService.TDelete(values);
+            return NoContent();
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCity(Destination destination)
+        {
+            _destinationService.TUpdate(destination);
+            var values2 = JsonConvert.SerializeObject(destination);
+            return Json(values2);
         }
 
     //    public static List<CityClass> cities = new List<CityClass>

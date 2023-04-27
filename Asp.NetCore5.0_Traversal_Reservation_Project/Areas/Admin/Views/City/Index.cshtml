@@ -23,17 +23,29 @@
 </div>
 <br />
 <div>
-    <input type="text" id="txtCity" placeholder="Şehir Adını Giriniz.."  class="form-control"/>
+    <input type="text" id="txtCityID" placeholder="Silinecek ID Değerini Giriniz.." class="form-control" />
+</div>
+<br />
+<div>
+    <input type="text" id="txtCityEditID" placeholder="Güncellenecek ID Değerini Giriniz.." class="form-control" />
     <br />
-    <input type="text" id="txtDayNight" placeholder="Gün - Gece Sayısı"  class="form-control"/>
+    <input type="text" id="txtCityName" placeholder="Güncellenecek Şehir Adı Giriniz.." class="form-control" />
     <br />
-    <input type="text" id="txtPrice" placeholder="Fiyat"  class="form-control"/>
+    <input type="text" id="txtDayNightName" placeholder="Güncellenecek Gün - Gece Bilgisini Giriniz.." class="form-control" />
+</div>
+<br />
+<div>
+    <input type="text" id="txtCity" placeholder="Şehir Adını Giriniz.." class="form-control" />
     <br />
-    <input type="text" id="txtCapacity" placeholder="Konaklayacak Kişi Sayısı"  class="form-control"/>
+    <input type="text" id="txtDayNight" placeholder="Gün - Gece Sayısı" class="form-control" />
+    <br />
+    <input type="text" id="txtPrice" placeholder="Fiyat" class="form-control" />
+    <br />
+    <input type="text" id="txtCapacity" placeholder="Konaklayacak Kişi Sayısı" class="form-control" />
 </div>
 <br />
 <div id="destinationListByID">
-    
+
 </div>
 <br />
 
@@ -86,12 +98,45 @@
             type: "Get",
             url: "/Admin/City/GetByID/",
             data: { DestinationID: id },
-            succes: function (func2) {
-                let result = jQuery.parseJSON(func2);
+            succes: function (fun2) {
+                let result = jQuery.parseJSON(fun2);
                 console.log(result);
-                let htmlStr = `<table class=table table-bordered> <tr><th> Şehir Adı </th><th> Gün - Gece </th><th> Fiyatı </th></tr><tr> <td>${result.City}</td><td>${result.DayNight}</td><td>${result.Capacity}</td></tr></table>`;
-                $("#destinationListByID").html(htmlStr);
+                let htmlstr = `<table class=table table-bordered><tr><th>Şehir Adı</th><th> Gün - Gece </th><th> Fiyatı </th></tr><tr><td>${result.City}</td><td>${result.DayNight}</td><td>${result.Capacity}</td></tr></table>`;
+                $("#destinationListByID").html(htmlstr);
             }
+        });
+    });
+
+    $("#btnDeleteCity").click(x => {
+        let id = $("#txtCityID").val();
+        $.ajax({
+            url: "/Admin/City/DeleteCity/" + id,
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            succes: function (func3) {
+                loadData();
+                
+            }
+        });
+    });
+
+    $("btnUpdateCity").click(function () {
+        let values = {
+            DestinationID: $("#txtCityEditID").val(),
+            City: $("#txtCityName").val(),
+            DayNight: $("#txtDayNightName").val()
+
+        };
+
+        $.ajax({
+            type: "post",
+            url: "/Admin/City/UpdateCity/",
+            data: values,
+            succes: function (func4) {
+                alert("Güncelleme İşlemi Yapıldı");
+            }
+
         });
     });
 </script>
