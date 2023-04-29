@@ -1,4 +1,4 @@
-﻿@model List<Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Models.AnnouncementListViewModel> 
+﻿@model List<DTOLayer.DTOs.AnnouncementDTOs.AnnouncementListDTO>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -17,11 +17,12 @@
     {
 
         <tr>
-            <td>@item.ID</td>
+            <td>@item.AnnouncementID</td>
             <td>@item.Content</td>
             <td>@item.Title</td>
             <td><a href="#" class="btn btn-outline-dark">Detaylar</a></td>
         </tr>
     }
 </table>
+<a href="/Admin/Announcement/AddAnnouncement/" class="btn btn-outline-success">Yeni Duyuru Oluştur</a>
 

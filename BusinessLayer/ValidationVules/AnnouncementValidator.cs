@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationVules
 {
-    public class AnnouncementValidator:AbstractValidator<AnnouncementAddDTOs>
+    public class AnnouncementValidator:AbstractValidator<AnnouncementAddDTO>
     {
         public AnnouncementValidator()
         {

@@ -13,14 +13,18 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Mapping.AutoMapperProfil
     {
         public MapProfile()
         {
-            CreateMap<AnnouncementAddDTOs, Announcement>();
-            CreateMap<Announcement, AnnouncementAddDTOs>(); // tam tersi yapmamızın nedeni eşleşmesi için
+            CreateMap<AnnouncementAddDTO, Announcement>();
+            CreateMap<Announcement, AnnouncementAddDTO>(); // tam tersi yapmamızın nedeni eşleşmesi için
 
             CreateMap<AppUserRegisterDTOs, AppUser>();
             CreateMap<AppUser, AppUserRegisterDTOs>();
 
             CreateMap<AppUserLoginDTOs, AppUser>();
             CreateMap<AppUser, AppUserLoginDTOs>();
+
+            CreateMap<AnnouncementListDTO, Announcement>();
+            CreateMap<Announcement, AnnouncementListDTO>();
+
 
 
 
