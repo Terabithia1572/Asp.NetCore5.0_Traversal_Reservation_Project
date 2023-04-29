@@ -25,6 +25,8 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Mapping.AutoMapperProfil
             CreateMap<AnnouncementListDTO, Announcement>();
             CreateMap<Announcement, AnnouncementListDTO>();
 
+            CreateMap<AnnouncementUpdateDTO, Announcement>();
+            CreateMap<Announcement, AnnouncementUpdateDTO>();
 
 
 

@@ -57,12 +57,45 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
                 {
                     Content = model.Content,
                     Title = model.Title,
-                    Date=Convert.ToDateTime(DateTime.Now.ToShortDateString())
+                    Date = Convert.ToDateTime(DateTime.Now.ToShortDateString())
 
                 });
                 return RedirectToAction("Index");
             }
             return View(model);
         }
+        public IActionResult DeleteAnnouncement(int id)
+        {
+            var values = _announcementService.GetByID(id);
+            _announcementService.TDelete(values);
+            return RedirectToAction("Index");
+
+        }
+        [HttpGet]
+        public IActionResult UpdateAnnouncement(int id)
+        {
+            var values = _mapper.Map<AnnouncementUpdateDTO>(_announcementService.GetByID(id));
+            return View(values);
+        }
+        [HttpPost]
+        public IActionResult UpdateAnnouncement(AnnouncementUpdateDTO model)
+        {
+            if (ModelState.IsValid)
+            {
+                _announcementService.TUpdate(new Announcement
+                {
+                    AnnouncementID = model.AnnouncementID,
+                    Title=model.Title,
+                    Content=model.Content,
+                    Date=Convert.ToDateTime(DateTime.Now.ToShortDateString())
+
+                });
+
+                return RedirectToAction("Index");
+            }
+            return View(model);
+
+        }
+
     }
 }
