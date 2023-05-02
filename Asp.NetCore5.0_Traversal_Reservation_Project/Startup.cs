@@ -41,6 +41,8 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project
             //Extensions extensions = new Extensions(); // bu komut sayesinde Business Layer'da tanýmladýðýmýz Container sýnýfýna ulaþabildik
             //extensions.ContainerDependencies(services); // devamý
 
+            services.AddHttpClient();
+
             services.ContainerDependencies();
 
             services.AddAutoMapper(typeof(Startup)); // AutoMapper
