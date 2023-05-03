@@ -1,3 +1,4 @@
+using Asp.NetCore5._0_Traversal_Reservation_Project.CQRS.Handlers.DestinationHandlers;
 using Asp.NetCore5._0_Traversal_Reservation_Project.Models;
 using BusinessLayer.Container;
 using DataAccessLayer.Concrete;
@@ -27,6 +28,8 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<GetAllDestinationQueryHandler>();
+            
             services.AddLogging(x =>
             {
                 x.ClearProviders();

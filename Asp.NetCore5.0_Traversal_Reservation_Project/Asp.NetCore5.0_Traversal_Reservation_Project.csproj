@@ -201,6 +201,7 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Member\Data\" />
+    <Folder Include="CQRS\Commands\" />
     <Folder Include="wwwroot\PdfReports\" />
     <Folder Include="wwwroot\UserImages\" />
   </ItemGroup>
