@@ -23,7 +23,9 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.CQRS.Handlers.Destinatio
             {
                 DestinationID = values.DestinationID,
                 City = values.City,
-                DayNight = values.DayNight
+                DayNight = values.DayNight,
+                Price=values.Price
+                
             };
         }
     }

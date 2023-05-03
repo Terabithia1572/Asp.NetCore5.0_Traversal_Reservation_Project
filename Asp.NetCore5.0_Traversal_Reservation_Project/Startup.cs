@@ -29,7 +29,11 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<GetAllDestinationQueryHandler>();
-            
+            services.AddScoped<GetDestinationByIDQueryHandler>();
+            services.AddScoped<CreateDestinationCommandHandler>();
+            //services.AddScoped<RemoveDestinationCommandHandler>();
+            //services.AddScoped<UpdateDestinationCommandHandler>();
+
             services.AddLogging(x =>
             {
                 x.ClearProviders();
