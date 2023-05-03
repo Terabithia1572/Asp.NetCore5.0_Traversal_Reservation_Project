@@ -17,12 +17,14 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
         private readonly GetAllDestinationQueryHandler _getAllDestinationQueryHandler;
         private readonly GetDestinationByIDQueryHandler _getDestinationByIDQueryHandler;
         private readonly CreateDestinationCommandHandler _createDestinationCommandHandler;
+        private readonly RemoveDestinationCommandHandler _removeDestinationCommandHandler;
 
-        public DestinationCQRSController(GetAllDestinationQueryHandler getAllDestinationQueryHandler, GetDestinationByIDQueryHandler getDestinationByIDQueryHandler, CreateDestinationCommandHandler createDestinationCommandHandler)
+        public DestinationCQRSController(GetAllDestinationQueryHandler getAllDestinationQueryHandler, GetDestinationByIDQueryHandler getDestinationByIDQueryHandler, CreateDestinationCommandHandler createDestinationCommandHandler, RemoveDestinationCommandHandler removeDestinationCommandHandler)
         {
             _getAllDestinationQueryHandler = getAllDestinationQueryHandler;
             _getDestinationByIDQueryHandler = getDestinationByIDQueryHandler;
             _createDestinationCommandHandler = createDestinationCommandHandler;
+            _removeDestinationCommandHandler = removeDestinationCommandHandler;
         }
 
         public IActionResult Index()
@@ -48,6 +50,12 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
         {
             _createDestinationCommandHandler.Handle(command);
             return RedirectToAction("Index");
+        }
+        public IActionResult DeleteDestination(int id)
+        {
+            _removeDestinationCommandHandler.Handle(new RemoveDestinationCommand(id));
+            return RedirectToAction("Index");
+
         }
     }
 }
