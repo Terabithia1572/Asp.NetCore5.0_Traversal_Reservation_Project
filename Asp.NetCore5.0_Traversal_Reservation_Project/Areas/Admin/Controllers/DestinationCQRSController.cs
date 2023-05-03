@@ -18,13 +18,15 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
         private readonly GetDestinationByIDQueryHandler _getDestinationByIDQueryHandler;
         private readonly CreateDestinationCommandHandler _createDestinationCommandHandler;
         private readonly RemoveDestinationCommandHandler _removeDestinationCommandHandler;
+        private readonly UpdateDestinationCommandHandler _updateDestinationCommandHandler;
 
-        public DestinationCQRSController(GetAllDestinationQueryHandler getAllDestinationQueryHandler, GetDestinationByIDQueryHandler getDestinationByIDQueryHandler, CreateDestinationCommandHandler createDestinationCommandHandler, RemoveDestinationCommandHandler removeDestinationCommandHandler)
+        public DestinationCQRSController(GetAllDestinationQueryHandler getAllDestinationQueryHandler, GetDestinationByIDQueryHandler getDestinationByIDQueryHandler, CreateDestinationCommandHandler createDestinationCommandHandler, RemoveDestinationCommandHandler removeDestinationCommandHandler, UpdateDestinationCommandHandler updateDestinationCommandHandler)
         {
             _getAllDestinationQueryHandler = getAllDestinationQueryHandler;
             _getDestinationByIDQueryHandler = getDestinationByIDQueryHandler;
             _createDestinationCommandHandler = createDestinationCommandHandler;
             _removeDestinationCommandHandler = removeDestinationCommandHandler;
+            _updateDestinationCommandHandler = updateDestinationCommandHandler;
         }
 
         public IActionResult Index()
@@ -39,6 +41,13 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Areas.Admin.Controllers
             var values = _getDestinationByIDQueryHandler.Handle(new GetDestinationByIDQuery(id));
             return View(values);
         }
+        [HttpPost]
+        public IActionResult GetDestination(UpdateDestinationCommand command)
+        {
+            _updateDestinationCommandHandler.Handle(command);
+            return RedirectToAction("Index");
+        }
+
 
         [HttpGet]
         public IActionResult AddDestination()
