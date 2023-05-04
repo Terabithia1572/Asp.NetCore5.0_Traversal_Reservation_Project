@@ -21,10 +21,16 @@ namespace BusinessLayer.Concrete.ConcreteUow
             _uowDal = uowDal;
         }
 
+
         public void TAdd(Account t)
         {
             _accountDal.Insert(t);
             _uowDal.Save();
+        }
+
+        public Account TGetByID(int id)
+        {
+           return _accountDal.GetByID(id);
         }
 
         public void TMultiUpdate(List<Account> t)

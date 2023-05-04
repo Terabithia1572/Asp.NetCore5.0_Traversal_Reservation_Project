@@ -33,5 +33,10 @@ namespace DataAccessLayer.Repository
         {
             _context.UpdateRange(t);
         }
+
+        public T GetByID(int id)
+        {
+            return _context.Set<T>().Find(id);
+        }
     }
 }
