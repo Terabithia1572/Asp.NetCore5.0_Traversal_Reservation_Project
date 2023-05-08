@@ -13,8 +13,9 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
     {
         CommentManager commentManager = new CommentManager(new EfCommentRepository());
         [HttpGet]
-        public PartialViewResult AddComment()
+        public PartialViewResult AddComment(int id)
         {
+            ViewBag.destID = id;
             return PartialView();
         }
         [HttpPost]

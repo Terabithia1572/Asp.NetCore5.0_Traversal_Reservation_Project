@@ -19,17 +19,18 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
             var values = destinationManager.TGetList();
             return View(values);
         }
-        [HttpGet]
+      //  [HttpGet]
         public IActionResult DestinationDetails(int id)
         {
             ViewBag.id = id;
+            ViewBag.destID = id;
             var values = destinationManager.GetByID(id);
             return View(values);
         }
-        [HttpPost]
-        public IActionResult DestinationDetails(Destination destination)
-        {
-            return View();
-        }
+        //[HttpPost]
+        //public IActionResult DestinationDetails(Destination destination)
+        //{
+        //    return View();
+        //}
     }
 }
