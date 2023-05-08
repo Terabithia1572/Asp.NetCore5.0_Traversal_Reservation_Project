@@ -13,7 +13,7 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.ViewComponents.Comment
         CommentManager commentManager = new(new EfCommentRepository());
         public IViewComponentResult Invoke(int id) // 
         {
-            var values = commentManager.TGetDestinationByID(id);
+            var values = commentManager.TGetListCommentWithDestinationAndUser(id);
             return View(values);
         }
     }
