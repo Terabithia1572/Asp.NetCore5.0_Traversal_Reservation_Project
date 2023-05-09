@@ -32,7 +32,7 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
             ViewBag.destID = id;
             var value = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.userID = value.Id;
-            var values = destinationManager.GetByID(id);
+            var values = destinationManager.TGetDestinationWithGuide(id);
             return View(values);
         }
         //[HttpPost]

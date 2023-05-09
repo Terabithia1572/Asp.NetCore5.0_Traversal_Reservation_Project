@@ -34,6 +34,11 @@ namespace BusinessLayer.Concrete
             _destinationDal.Delete(t);
         }
 
+        public List<Destination> TGetDestinationWithGuide(int id)
+        {
+            return _destinationDal.GetDestinationWithGuide(id);
+        }
+
         public List<Destination> TGetList()
         {
             return _destinationDal.GetListAll();
