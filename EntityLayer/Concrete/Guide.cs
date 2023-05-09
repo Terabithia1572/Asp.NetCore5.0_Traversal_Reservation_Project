@@ -13,6 +13,7 @@ namespace EntityLayer.Concrete
         public int GuideID { get; set; }
         public string GuideName { get; set; }
         public string GuideDescription { get; set; }
+        public string GuideDescription2 { get; set; }
         public string GuideImage { get; set; }
         public string TwitterURL { get; set; }
         public string InstagramURL { get; set; }
