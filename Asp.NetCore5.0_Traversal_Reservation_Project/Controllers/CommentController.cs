@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,11 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Controllers
     {
         CommentManager commentManager = new CommentManager(new EfCommentRepository());
         [HttpGet]
-        public PartialViewResult AddComment(int id)
+        public PartialViewResult AddComment()
         {
-            ViewBag.destID = id;
+            //ViewBag.destID = id;
+            //var value = await _userManager.FindByNameAsync(User.Identity.Name);
+            //ViewBag.userID = value.Id;
             return PartialView();
         }
         [HttpPost]

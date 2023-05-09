@@ -24,5 +24,7 @@ namespace EntityLayer.Concrete
         public bool Status { get; set; }
         public List<Comment> Comments { get; set; }
         public List<Reservation> Reservations { get; set; }
+        public int? GuideID { get; set; } // int? dememizin nedeni boş geçilebilsin içinde null olan verilerimiz var hata fırlatır yoksa
+        public Guide Guide { get; set; }
     }
 }
