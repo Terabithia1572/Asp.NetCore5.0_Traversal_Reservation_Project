@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DTOLayer.DTOs.AnnouncementDTOs;
 using DTOLayer.DTOs.AppUserDTOs;
+using DTOLayer.DTOs.ContactDTOs;
 using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,8 @@ namespace Asp.NetCore5._0_Traversal_Reservation_Project.Mapping.AutoMapperProfil
             CreateMap<AnnouncementUpdateDTO, Announcement>();
             CreateMap<Announcement, AnnouncementUpdateDTO>();
 
-
+            CreateMap<SendMessageDTO, ContactUs>().ReverseMap(); // .ReverseMap dersek yukarudaki işlemler gibi tersini alıyor
+           
 
             //Announcement
         }
