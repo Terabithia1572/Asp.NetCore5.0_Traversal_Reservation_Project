@@ -14,5 +14,6 @@ namespace SignalRApiForSql.Models
         }
         public string VisitDate { get; set; }
         public List<int> Counts { get; set; }
+        //null
     }
 }
