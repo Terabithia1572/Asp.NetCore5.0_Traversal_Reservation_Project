@@ -16,5 +16,6 @@ namespace SignalRApiForSql.Models
         public List<int> Counts { get; set; }
         //null
         //null
+        //null
     }
 }
